@@ -10,9 +10,9 @@ exports.getAccounts = async (accessToken) => {
       const result = await getAccounts(accessToken, page);
       if (result) {
         const {account, link} = result.data;
-        const accountNumberArray = accounts.map(account => account.acc_number);
-        const filterUniqueAccounts = account.filter(account => !accountNumberArray.includes(account.acc_number));
-        accounts.push(...filterUniqueAccounts);
+        const arrayOfAccountNumbers = accounts.map(account => account.acc_number);
+        const filteredAccounts = account.filter(account => !arrayOfAccountNumbers.includes(account.acc_number));
+        accounts.push(...filteredAccounts);
         if (!link || (link && !link.next)) {
           nextPage = false;
         }

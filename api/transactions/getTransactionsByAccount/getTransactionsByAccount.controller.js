@@ -12,9 +12,9 @@ exports.getTransactionsByAccount = async (accessToken, account) => {
             if (result && result.data) {
               const {transactions, link} = result.data;
               const retrievedTransactions = [...transactions];
-              const transactionIdsArray = transactionsArray.map(transaction => transaction.id);
-              const filterUniqueTransactions = retrievedTransactions.filter(transaction => !transactionIdsArray.includes(transaction.id));
-              transactionsArray.push(...filterUniqueTransactions);
+              const arrayOfTransactionIds = transactionsArray.map(transaction => transaction.id);
+              const filteredTransactions = retrievedTransactions.filter(transaction => !arrayOfTransactionIds.includes(transaction.id));
+              transactionsArray.push(...filteredTransactions);
               if (!link || (link && !link.next)) {
                 nextPage = false;
               }
