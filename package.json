@@ -1,0 +1,24 @@
+{
+  "name": "test-bankin-connectors",
+  "version": "1.0.0",
+  "description": "Banking technical test - back end connectors",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm install & node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bankin",
+    "connectors"
+  ],
+  "author": "nina ristorcelli",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nristorc/BankinTest.git"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "qs": "^6.9.4"
+  }
+}
