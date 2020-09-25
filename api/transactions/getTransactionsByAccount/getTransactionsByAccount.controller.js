@@ -3,10 +3,9 @@ const {getTransactionsByAccount} = require('./getTransactionsByAccount.service')
 exports.getTransactionsByAccount = async (accessToken, account) => {
   try {
         const transactionsArray = [];
-        let page = 1;
         let nextPage = true;
 
-        while (nextPage) {
+        for (let page = 1; nextPage; page++) {
           if (account.acc_number !== '0000000013') {
             const result = await getTransactionsByAccount(accessToken, account.acc_number, page);
             if (result && result.data) {
@@ -18,7 +17,6 @@ exports.getTransactionsByAccount = async (accessToken, account) => {
               if (!link || (link && !link.next)) {
                 nextPage = false;
               }
-              page++;
             }
           } else {
             nextPage = false;

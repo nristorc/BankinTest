@@ -1,5 +1,5 @@
-const config = require('../../../config/config');
 const axios = require('axios');
+const config = require('../../../config/config');
 
 exports.getAccounts = async (accessToken, page = 1) => {
   const options = {

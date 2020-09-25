@@ -1,6 +1,6 @@
-const config = require('../../../config/config');
 const axios = require('axios');
 const qs = require('qs');
+const config = require('../../../config/config');
 
 exports.getAccessToken = async (refreshToken) => {
   const options = {

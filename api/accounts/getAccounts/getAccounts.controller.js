@@ -3,10 +3,9 @@ const {getAccounts} = require('./getAccounts.service');
 exports.getAccounts = async (accessToken) => {
   try {
     const accounts = [];
-    let page = 1;
     let nextPage = true;
 
-    while (nextPage) {
+    for (let page = 1; nextPage; page++) {
       const result = await getAccounts(accessToken, page);
       if (result) {
         const {account, link} = result.data;
@@ -16,7 +15,6 @@ exports.getAccounts = async (accessToken) => {
         if (!link || (link && !link.next)) {
           nextPage = false;
         }
-        page++;
       }
     }
     return accounts;
